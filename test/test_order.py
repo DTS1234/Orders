@@ -69,3 +69,11 @@ class TestOrder(TestCase):
         actual = self.subject.get_total()
         # then
         self.assertEqual(actual, 38.00)
+
+    def test_shouldReturnZeroWhenNoItems(self):
+        # given
+        self.subject.items = []
+        # when
+        actual = self.subject.get_total()
+        # then
+        self.assertEqual(actual, 0)

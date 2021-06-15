@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 inquirer = "*"
+coverage = "*"
+mock = "*"
 
 [dev-packages]
 
