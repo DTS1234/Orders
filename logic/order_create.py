@@ -20,7 +20,7 @@ payment_methods = {
 
 print('Todays menu:')
 for i, m in enumerate(menu):
-    print(i+1, m.name, m.price)
+    print(i + 1, m.name, m.price)
 
 order = Order()
 while True:
@@ -28,7 +28,7 @@ while True:
     regexp = re.compile('^[\d|E|e]{1}$')
     if regexp.match(menu_add):
         if menu_add.upper() != 'E':
-            menu_item = menu[int(menu_add)-1]
+            menu_item = menu[int(menu_add) - 1]
             order.add_item(menu_item)
             print('Added {} to your order. Current total: {} PLN'.format(menu_item.name, order.get_total()))
             continue
@@ -44,10 +44,10 @@ total = order.get_total()
 print('Total: {} PLN'.format(total))
 
 paymentMethods = [
-inquirer.List('payment', 
-			message = "How would you like to pay?",
-			choices = ['cash', 'blik', 'card'],
-		),
+    inquirer.List('payment',
+                  message="How would you like to pay?",
+                  choices=['cash', 'blik', 'card'],
+                  ),
 ]
 answers = inquirer.prompt(paymentMethods)
 payment = payment_methods[answers['payment']]()
